@@ -1,21 +1,23 @@
 ---
-name: Feature request
+name: Feature Request
 about: Suggest an idea for this project
-title: ''
-labels: ''
+title: '[Feature Request] '
+labels: 'enhancement'
 assignees: ''
-
 ---
 
 ## Is your feature request related to a problem? Please describe.
-<input type="text" name="problem_description" required>
+
+Describe the problem here.
 
 ## Describe the solution you'd like
-<input type="text" name="solution_description" required>
+
+Describe the solution you have in mind.
 
 ## Describe alternatives you've considered
-<input type="text" name="alternative_solutions">
+
+Describe any alternative solutions or features you've considered.
 
 ## Additional context
-Add any other context or screenshots about the feature request here.
-<input type="text" name="additional_context">
+
+Provide any additional context or screenshots about the feature request.
