@@ -3,6 +3,7 @@ import './App.css'
 import  Sliders  from './Components/Carousel/Sliders'
 import Navbar from './Components/Navigation/Navbar'
 
+
 import { Fragment as Fragment2, useState, react } from "react";
 import ProductsMultiCrousel from './Components/ProductsCrousel/ProductsMultiCrousel';
 import {kurtaPage1} from './assets/Girl/Kurta'
@@ -10,6 +11,7 @@ import {mens_kurta} from './assets/Men/Mens_Kurta.js'
 import Mens_Jeans from './assets/Men/Mens_Jeans.json'
 import Mens_Shirt from './assets/Men/Mens_Shirt.json'
 import {mensShoesPage1} from './assets/Both/Shoes'
+import Footer from './Components/Footer/Footer';
 
 
 function App() {
@@ -29,6 +31,9 @@ function App() {
       <ProductsMultiCrousel kurta={mensShoesPage1} title="Shoes"/>
 
       
+    </div>
+    <div>
+      <Footer/>
     </div>
    </>
   )
