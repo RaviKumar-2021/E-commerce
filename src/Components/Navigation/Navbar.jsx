@@ -1,6 +1,8 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Login from '../Login/Singup/Login'
+
 
 export const navigation = {
   categories: [
@@ -132,6 +134,12 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [loginAuthOpen, setloginAuthOpen] = useState(false)
+  const [signupAuthOpen, setsignupAuthOpen] = useState(true)
+  const signupHandler=()=>{
+    console.log("first")
+  }
+
 
   return (
     <div className="bg-white z-10">
@@ -247,8 +255,8 @@ export default function Navbar() {
                 </div>
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                  <div className="flow-root" onClick={signupHandler}>
+                    <a href="login" className="-m-2 block p-2 font-medium text-gray-900">
                       Sign in
                     </a>
                   </div>
@@ -417,18 +425,6 @@ export default function Navbar() {
                   </a>
                 </div>
 
-                <div className="hidden lg:ml-8 lg:flex">
-                  <a href="#" className="flex items-center text-gray-700 hover:text-gray-800">
-                    <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
-                </div>
-
                 {/* Search */}
                 <div className="flex lg:ml-6">
                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
@@ -453,6 +449,9 @@ export default function Navbar() {
           </div>
         </nav>
       </header>
+        <div className='' style={{display:(loginAuthOpen? "block":"none")}}>
+                    <Login/>
+        </div>
     </div>
   )
 }

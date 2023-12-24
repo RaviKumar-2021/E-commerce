@@ -1,40 +1,28 @@
-import zIndex from '@mui/material/styles/zIndex';
-import './App.css'
-import  Sliders  from './Components/Carousel/Sliders'
+import Home from './Components/Home/Home'
 import Navbar from './Components/Navigation/Navbar'
-
-
-import { Fragment as Fragment2, useState, react } from "react";
-import ProductsMultiCrousel from './Components/ProductsCrousel/ProductsMultiCrousel';
-import {kurtaPage1} from './assets/Girl/Kurta'
-import {mens_kurta} from './assets/Men/Mens_Kurta.js'
-import Mens_Jeans from './assets/Men/Mens_Jeans.json'
-import Mens_Shirt from './assets/Men/Mens_Shirt.json'
-import {mensShoesPage1} from './assets/Both/Shoes'
-import Footer from './Components/Footer/Footer';
-
+import FilterData from './Components/FilterData/FilterData'
+import { Router, Route, createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Login from './Components/Login/Singup/Login';
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/filter",
+      element: <FilterData />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+  ]);
   return (
    <>
-    <div style={{zIndex:1}}>
-    <Navbar/>
-    </div>
-    <div style={{position:"relative", zIndex:"-1"}}>
-      <Sliders/>
-    </div>
-    <div style={{}}>
-      <ProductsMultiCrousel kurta={mens_kurta} title="Men's Kurta"/>
-      <ProductsMultiCrousel kurta={kurtaPage1} title="Girl's Kurta"/>
-      <ProductsMultiCrousel kurta={Mens_Shirt} title="Mens's Shirt"/>
-      <ProductsMultiCrousel kurta={Mens_Jeans} title="Men's Jeans"/>
-      <ProductsMultiCrousel kurta={mensShoesPage1} title="Shoes"/>
-
-      
-    </div>
-    <div>
-      <Footer/>
-    </div>
+   <Navbar/>
+    <RouterProvider router={router}/>
    </>
   )
 }
