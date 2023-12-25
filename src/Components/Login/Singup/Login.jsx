@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Login = () => {
+const Login = (props) => {
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex justify-center items-center bg-gray-100  w-1/2 mx-auto my-auto relative p-10 mt-10">
+      <div className="closebtn hover-s-10" style={{position:"absolute", top:"10px", right:"20px"  }} onClick={props.fun}>X</div>
       <div className="bg-white p-8 shadow-md rounded-md">
         <h2 className="text-2xl font-bold mb-4">Login</h2>
         <form>

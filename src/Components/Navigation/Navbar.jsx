@@ -137,7 +137,12 @@ export default function Navbar() {
   const [loginAuthOpen, setloginAuthOpen] = useState(false)
   const [signupAuthOpen, setsignupAuthOpen] = useState(true)
   const signupHandler=()=>{
-    console.log("first")
+    if(loginAuthOpen){
+      setloginAuthOpen(false)
+    }
+    else{
+      setloginAuthOpen(true)
+    }
   }
 
 
@@ -415,7 +420,7 @@ export default function Navbar() {
               </Popover.Group>
 
               <div className="ml-auto flex items-center">
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6" onClick={signupHandler}>
                   <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Sign in
                   </a>
@@ -449,8 +454,8 @@ export default function Navbar() {
           </div>
         </nav>
       </header>
-        <div className='' style={{display:(loginAuthOpen? "block":"none")}}>
-                    <Login/>
+        <div className='absolute z-99 w-96' style={{display:(loginAuthOpen? "block":"none"),width:'100%'}}>
+                    <Login fun={signupHandler}/>
         </div>
     </div>
   )
