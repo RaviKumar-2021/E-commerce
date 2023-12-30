@@ -1,6 +1,8 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Login from '../Login/Singup/Login'
+
 
 export const navigation = {
   categories: [
@@ -132,6 +134,17 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [loginAuthOpen, setloginAuthOpen] = useState(false)
+  const [signupAuthOpen, setsignupAuthOpen] = useState(true)
+  const signupHandler=()=>{
+    if(loginAuthOpen){
+      setloginAuthOpen(false)
+    }
+    else{
+      setloginAuthOpen(true)
+    }
+  }
+
 
   return (
     <div className="bg-white z-10">
@@ -247,8 +260,8 @@ export default function Navbar() {
                 </div>
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                  <div className="flow-root" onClick={signupHandler}>
+                    <a href="login" className="-m-2 block p-2 font-medium text-gray-900">
                       Sign in
                     </a>
                   </div>
@@ -407,25 +420,13 @@ export default function Navbar() {
               </Popover.Group>
 
               <div className="ml-auto flex items-center">
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6" onClick={signupHandler}>
                   <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Sign in
                   </a>
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Create account
-                  </a>
-                </div>
-
-                <div className="hidden lg:ml-8 lg:flex">
-                  <a href="#" className="flex items-center text-gray-700 hover:text-gray-800">
-                    <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
-                    <span className="sr-only">, change currency</span>
                   </a>
                 </div>
 
@@ -453,6 +454,9 @@ export default function Navbar() {
           </div>
         </nav>
       </header>
+        <div className='absolute z-99 w-96' style={{display:(loginAuthOpen? "block":"none"),width:'100%'}}>
+                    <Login fun={signupHandler}/>
+        </div>
     </div>
   )
 }
